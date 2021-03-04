@@ -42,6 +42,7 @@ unifiedPackages = [
     'ecore-core-devel',
     'ecore-imf',
     'ecore-imf-devel',
+    'ecore-imf-evas',
     'ecore-imf-evas-devel',
     'ecore-input',
     'ecore-input-devel',
@@ -57,6 +58,7 @@ unifiedPackages = [
     'eo-devel',
     'evas',
     'evas-devel',
+    'freetype2',
     'freetype2-devel',
     'jsoncpp',
     'jsoncpp-devel',
@@ -78,6 +80,17 @@ unifiedPackages = [
     'xdgmime-devel',
     'wayland-extension-client-devel',
     'wayland-devel',
+    'elementary',
+    'elementary-devel',
+    'ecore-con-devel',
+    'edje-devel',
+    'efreet-devel',
+    'ethumb-devel',
+    'eet',
+    'eet-devel',
+    'ecore-file-devel',
+    'ecore-evas',
+    'ecore-evas-devel',
 ]
 
 # Execute only if run as a script.
@@ -176,8 +189,8 @@ for rpm in [f for f in os.listdir(downloadPath) if f.endswith('.rpm')]:
 
 # Create symbolic links. Any errors are ignored.
 subprocess.run(f'ln -s asm-arm {outpath}/usr/include/asm', shell=True)
-subprocess.run(f'ln -s libecore_input.so.1 {outpath}/usr/lib/libecore_input.so',
-               shell=True)
+#subprocess.run(f'ln -s libecore_input.so.1 {outpath}/usr/lib/libecore_input.so',
+#               shell=True)
 
 # Apply a patch if applicable.
 patchFile = os.path.abspath(f'{__file__}/../{args.arch}.patch')
